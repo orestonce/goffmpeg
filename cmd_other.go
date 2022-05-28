@@ -2,9 +2,7 @@
 
 package goffmpeg
 
-import (
-	"os/exec"
-)
+import "os/exec"
 
 func setupCmd(cmd *exec.Cmd) {
 

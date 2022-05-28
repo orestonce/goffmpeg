@@ -65,6 +65,7 @@ type MergeMultiToSingleMp4_Req struct {
 func MergeMultiToSingleMp4(req MergeMultiToSingleMp4_Req) (err error) {
 	outputMp4Temp := req.OutputMp4 + ".tmp"
 	cmd := exec.Command(req.FfmpegExePath, "-i", "-", "-acodec", "copy", "-vcodec", "copy", "-f", "mp4", "-y", outputMp4Temp)
+	setupCmd(cmd)
 	ip, err := cmd.StdinPipe()
 	if err != nil {
 		return err
